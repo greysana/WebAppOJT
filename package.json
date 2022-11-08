@@ -1,10 +1,17 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "@fontsource/karla": "^4.5.10",
     "material-ui": "^1.0.0-beta.47",
     "moment": "^2.29.4",
     "react-icons": "^4.6.0",
     "react-input-calendar": "^0.5.4",
     "typeface-courier-prime": "^1.1.13"
+=======
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.12",
+    "react-textarea-autosize": "^8.3.4"
+>>>>>>> 454578dc890e93538624ff77080b8c718f23a939
   }
 }
