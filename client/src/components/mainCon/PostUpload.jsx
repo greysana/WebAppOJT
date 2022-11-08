@@ -5,27 +5,31 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import kazuha from "../../assets/kazuha.jpg";
 import { FileUploader } from "react-drag-drop-files";
 import { AiOutlineClose } from "react-icons/ai";
-import word from "../../assets/documentLogos/word.png"
-import excel from "../../assets/documentLogos/excel.png"
-import pdf from "../../assets/documentLogos/pdf.png"
-import ppt from "../../assets/documentLogos/ppt.png"
+import word from "../../assets/documentLogos/word.png";
+import excel from "../../assets/documentLogos/excel.png";
+import pdf from "../../assets/documentLogos/pdf.png";
+import ppt from "../../assets/documentLogos/ppt.png";
 import { MdDelete } from "react-icons/md";
 
-const fileTypes = ["JPG", "PNG", "GIF","pdf","docx"];
-const fileLogo = [{
-  type:"docx/doc/docm",
-  img: word
-},
-{
-  type:"xlsx/xsl/xlsm",
-  img: excel
-},{
-  type:"pdf",
-  img: pdf
-},{
-  type:"ppt/pptx/pptm",
-  img: ppt
-}]
+const fileTypes = ["JPG", "PNG", "GIF", "pdf", "docx"];
+const fileLogo = [
+  {
+    type: "docx/doc/docm",
+    img: word,
+  },
+  {
+    type: "xlsx/xsl/xlsm",
+    img: excel,
+  },
+  {
+    type: "pdf",
+    img: pdf,
+  },
+  {
+    type: "ppt/pptx/pptm",
+    img: ppt,
+  },
+];
 const PostUpload = () => {
   const [file, setFile] = useState([]);
   const [files, setFiles] = useState([]);
@@ -38,7 +42,7 @@ const PostUpload = () => {
   //save dropped file
   const handleChange = (file) => {
     setFile(file);
-    
+
     if (files.length <= 3) {
       setFiles([...files, file]);
     }
@@ -51,24 +55,22 @@ const PostUpload = () => {
   // add preview images every successful file save
   useEffect(() => {
     if (file?.type?.includes("application")) {
-    
-       if (prevfile.length <1) {
-         setprevfile([...prevfile, file])
-        }
-         
-       } else {
-         if (files.length > 0) {
-           setprev([
-             ...prev,
-             {
-               id: id + 1,
-               link: URL.createObjectURL(files[files?.length - 1]),
-             },
-           ]);
-           setid(id + 1);
-         }
-       }}
-  , [file]);
+      if (prevfile.length < 1) {
+        setprevfile([...prevfile, file]);
+      }
+    } else {
+      if (files.length > 0) {
+        setprev([
+          ...prev,
+          {
+            id: id + 1,
+            link: URL.createObjectURL(files[files?.length - 1]),
+          },
+        ]);
+        setid(id + 1);
+      }
+    }
+  }, [file]);
   //Preview Image remove
   function arrayRemove(arr, value) {
     return arr.filter(function (ele) {
@@ -77,7 +79,7 @@ const PostUpload = () => {
   }
   //File Remove
   function arrayFRemove(arr, value) {
-    return arr.filter(function (ele,i) {
+    return arr.filter(function (ele, i) {
       return i !== value;
     });
   }
@@ -155,7 +157,7 @@ const PostUpload = () => {
                   </div>
                 );
               })}
-              {prevfile?.map((item, i) =>{
+              {prevfile?.map((item, i) => {
                 return (
                   <div className="fileWrap" key={i}>
                     <img
@@ -206,13 +208,13 @@ const Con = styled.div`
     width: 400px;
     // height: 100px;
     border-radius: 15px;
-   // margin: 2rem auto;
+    // margin: 2rem auto;
     margin-top: 3rem;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     padding: 1rem;
-    & .postbtn{
+    & .postbtn {
       border: none;
       padding: 8px 20px;
       border-radius: 10px;
@@ -289,8 +291,7 @@ const Con = styled.div`
         padding: 3px 5px;
         background-color: transparent;
         font-size: 20px;
-        margin-left:10px;
-       
+        margin-left: 10px;
       }
       & img {
         border-radius: 0;
